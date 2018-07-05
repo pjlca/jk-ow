@@ -15,7 +15,7 @@ pipeline {
     stage('Push Registry') {
       steps {
         sh 'docker tag app:test app:stable'
-        sh 'docker push app:test app:stable'
+        sh 'docker push pjlca/app:stable'
       }
     }
   }

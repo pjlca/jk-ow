@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Push Registry') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'user')]) {
+                withDockerRegistry(credentialsId: 'dockerhub') {
                     sh 'docker tag app:test pjlca/app:stable'
                     sh 'docker push pjlca/app:stable'
                 }

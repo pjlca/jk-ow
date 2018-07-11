@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Push Registry') {
             steps {
-                withDockerRegistry(credentialsId: 'dockerhub') {
+                withDockerRegistry([credentialsId: 'dockerhub', url: '']) {
                     sh 'docker tag app:test pjlca/app:stable'
                     sh 'docker push pjlca/app:stable'
                 }
